@@ -10,7 +10,7 @@ const forecast = (latitude, longtitude, callback) => {
         } else if (body.error){
             callback('Unable to find location!', undefined)
         } else {
-            callback(undefined, body.currently.summary +'. It is currently '+body.currently.temperature+' degrees out. There is a '+body.currently.precipProbability+'% chance of rain. Forecast for the week ahead is '+body.daily.summary);
+            callback(undefined, body.currently.summary +'. It is currently '+body.currently.temperature+' degrees out. This high today is ' +body.daily.data[0].temperatureHigh + ' degrees with a low of '+ body.daily.data[0].temperatureLow + ' degrees. There is a '+body.currently.precipProbability+'% chance of rain. Forecast for the week ahead is '+body.daily.summary);
         }
     })
 }
